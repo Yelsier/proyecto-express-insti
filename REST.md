@@ -27,7 +27,6 @@ Hoy en día el mas utilizado es **JSON** debido a su popularidad en las aplicaci
 - Nos permite separar cliente de servidor. Nos permite separar la parte de backend de la de frontend (Ej: C# y React).
 - Es totalmente independiente de la plataforma por lo que no importa el sistema (Windows, Linux, Mac etc...) ni el lenguaje usado.
 - Podemos añadir restricciones, podemos hacer nuestra API pública entera o parcialmente, o privada. Hacer uso de keys etc...
-- 
 
 
 ## **Rutas**
