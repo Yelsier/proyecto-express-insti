@@ -18,7 +18,7 @@ Hoy en día el mas utilizado es **JSON** debido a su popularidad en las aplicaci
   
         No olvidar que existen infinidad de verbos y cada uno tiene su uso.
 
-        Hay que tener en cuenta de que esto no es más que una nomenclatura y unos estándares de uso para cada uno, aun así, se podría obtener recursos accediendo por POST y se podría subir productos mediante GET ya qué al mandar una acción al servidor, el programa redirigirá a la acción deseada.
+        Hay que tener en cuenta de que esto no es más que una nomenclatura y unos estándares de uso para cada uno, aun así, se podría obtener recursos accediendo por POST y se podría subir productos mediante GET ya qué al mandar una acción al servidor, el programa redirigirá a la acción deseada.c
 
 - Todos los objetos se manipulan mediante URL, ya que le enviaremos una url con una ruta y parámetros específicos y el servidor nos devolverá una respuesta en base a nuestra petición.
 
