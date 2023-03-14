@@ -34,19 +34,44 @@ Hoy en día el mas utilizado es **JSON** debido a su popularidad en las aplicaci
 
 Las rutas o el direccionamiento de una página es una serie de rutas en la url que el programa utilizara para realizar según que acciones. Las acciones que se realizarán se basan en los verbos que están preestablecidos para cualquier sistema **REST** como hemos explicado anteriormente.
 
-A continuación veremos un ejemplo básico de uso de rutas en una API:
+ Al hacer la petición en el código podremos especificarleel verbo a utilizar los parámetros, cabeceras etc...
 
-    https://midominio.com/alumnos
+ Ejemplos de enrutamiento básico para una **BBDD** con la tabla Alumnos:
 
-Con esta ruta estaremos entrando a la API ubicada en _midominio.com_ y a la ruta _/alumnos_. El verbo por defecto en cualquier página es el **GET** 
+    GET: https://midominio.com/alumnos
 
-   
- 
+Accederemos directamente a la ruta y nos devolverá una respuesta con un JSON de Alumnos.
 
+    GET: https://midominio.com/alumnos/{id}
 
+Al acceder a esta ruta, le especificamos un identificador único, por lo que el servidor nos devolverá una respuesta con el objeto que contenga este identificador.
+
+    GET: https://midominio.com/alumnos/{id}/asignaturas
+
+Otra convención a la hora de hacer rutas en nuestra API es poder acceder a las propiedades (normalmente Listas/Enumerables) de un objeto en específico. De esta manera podremos obtener los datos de un objeto directamente sin tener que manipularlo.
+
+    POST: https://midominio.com/alumnos
+
+Para hacer un POST, tendremos que acceder a la misma ruta pero especificando el verbo como POST y pasándole en el cuerpo de la petición el objeto que quieres añadir a la **BBDD**.
+
+    PUT: https://midominio.com/alumnos/{id}
+
+Para hacer un PUT tendremos que acceder a la ruta especificando el id del objeto que queremos modificar y al igual que en el POST, tendremos que pasar en el cuerpo de la petición el objeto con las modificaciones ya hechas.
+
+    DELETE: https://midominio.com/alumnos/{id}
+
+Finalmente, podremos eliminar un objeto de la **BBDD** especificando el id del objeto que queremos eliminar.
+
+Hay herramientas que nos sirven a la hora de trabajar con peticiones, para ver valores devueltos, parametros etc... Una de ella muy conocida es **POSTMAN**, tanto la versión web como la versión escritorio, hay que tener en cuenta que si trabajamos a menudo en local (localhost) tendremos que utilizar la versión de escritorio ya que la versión web no puede acceder a nuestro servidor local.
+
+Es una herramienta muy gráfica y en la que podemos escribir muy fácilmmente parámetros en la petición, datos en  el body, cabeceras etc...
 
 
 ## **CRUD**
 
+Son las siglas de **CREATE**, **READ**, **UPDATE** y **DELETE**.
 
-## Webs HTTP
+Básicamente se habla de **CRUD** cuando queremos crear un servidor para el mantenimineto de una **BBDD**.
+El mantenimiento básico sería lo comentado al principio, poder crear, leer, editar y eliminar datos de la base de datos. 
+
+Para hacer esto tendremos que utilizar los verbos que utilizan **REST** y **HTTP** como con los ejemplos vistos anteriormente en las rutas. 
