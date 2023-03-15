@@ -10,7 +10,8 @@ ________________
   2. Cómo Funciona Express.js
   3. Cómo trabajar con una aplicación Express.js 
      + Instalacion  y ejecución
-     +  
+     + Enrutamiento personalizado
+     + Conexión con base de datos 
 
 ________________
  
@@ -96,6 +97,7 @@ ________________
           + esta función recibe dos parametros **"/"**, con esto indicamos lo que visualizaremos por defecto, si quisieramos dirigirnos a otra ruta seria **"/ayuda,home,...."** , el segundo parametro **function(request,response,next)** usamos una función "callback". Y nuestro usuario visualizara el mensaje de **Hola a todos**
      + Ahora nos dirigimos al documento **app.js** y añadimos <code> var nombreDeLaVariable = require ('./routes/nombreDelDocumento.js') </code>
          +  nos dirigimos a nuetsro navegador y ponemos en la barra de busqueda **localhost://300/nombreDelDocumento.js**, y tendriamos que visualizar Hola a todos
+  
 ### **3. Conexión con base de datos:**
 
 El processo de Conexión de una base de datos en Express depende de que tipo de base de datos quieras usar.
