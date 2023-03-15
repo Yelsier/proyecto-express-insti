@@ -15,7 +15,7 @@ ________________
 
 ________________
  
-## 1 - Que es Exprress
+## 1 - Que es Express
  Es un framework de backend minimalista, rápido , que proporciona características y herramientas robustas para desarrollar aplicaciones de backend escalables. Te ofrece el sistema de enrutamiento y características simplificadas para ampliar el framework con componentes.
 
 
