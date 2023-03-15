@@ -1,7 +1,7 @@
 # Express framework
 
   ~~~
-  ### *Framework de backend  Node.js que proporciona un conjunto de herramientas para aplicaciones web, peticiones y respuestas HTTP, enrutamiento y middleware para construir y desplegar aplicaciones a gran escala y preparadas para la empresa.* ###
+  Framework de backend  Node.js que proporciona un conjunto de herramientas para aplicaciones web, peticiones y respuestas HTTP, enrutamiento y middleware para construir y desplegar aplicaciones a gran escala y preparadas para la empresa.
 ~~~
 
 ________________
