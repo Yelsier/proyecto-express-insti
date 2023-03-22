@@ -5,34 +5,28 @@ const db = require("../db")
 //las rutas empiezan desde /api/flights
 let offset = 0;
 let limit = 10;
-router.get('/', async (req, res) => {
 
+
+router.get('/', async (req, res) => {
+    let querySearch = "SELECT * FROM flights LIMIT $1 OFFSET $2;";
     let actualOffset = offset;
-    if ("page" in req.params) {
-        if (!isNaN(req.params.page)) {
-            actualOffset = req.params.page * limit;
+    let values = [limit, actualOffset];
+
+    if (req.query.page) {
+        if (!isNaN(req.query.page)) {
+            actualOffset = Number(req.query.page) * limit;
+            values = [limit, actualOffset];
         }
     }
 
-    let querySearch = "SELECT * FROM flights LIMIT $1 OFFSET $2;";
-    db.query(querySearch, [limit, actualOffset], (err, query) => {
-        res.json({ data: query.rows });
-    })
+    if (req.query.id) {
+        querySearch = 'SELECT * FROM flights WHERE flight_id = $1;';
+        values = [!isNaN(req.query.id) ? Number(req.query.id) : 1185];
+    }
+
+    db.query(querySearch, values, (err, query) => res.json({ data: query.rows }))
 });
 
 
-router.get('/:id', async (req, res) => {
-    let querySearch = 'SELECT * FROM flights WHERE ID = $1;';
-    db.query(querySearch, [req.params.pepe], (err, query) => {
-        res.json({ data: query.rows });
-    })
-});
-
-router.get('/:limit/:offset', async (req, res) => {
-    let querySearch = 'SELECT * FROM flights LIMIT $1 OFFSET $2;';
-    db.query(querySearch, [req.params.limit, req.params.offset], (err, query) => {
-        res.json({ data: query.rows });
-    })
-});
 
 module.exports = router;
