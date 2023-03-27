@@ -9,12 +9,14 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../all.css">
     <link rel="stylesheet" href="./tickets.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="./tickets.js"></script>
     <title>Tickets</title>
 </head>
 
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar embed-responsive">
         <div class="sidebar-brand">
             <h2><span class="lab la-accusoft"></span> <span><a href="/">Backend</a></span></h2>
         </div>
@@ -25,7 +27,7 @@
                         <span>Tickets</span></a>
                 </li>
                 <li>
-                    <a href="/flights"><span class="las la-clipboard-list"></span>
+                    <a href="/flights/pages"><span class="las la-clipboard-list"></span>
                         <span>Flights</span></a>
                 </li>
                 <li>
@@ -35,36 +37,27 @@
             </ul>
         </div>
     </div>
-    <div class="content bg-dark">
-        <h1 class="text-white">Tabla</h1>
-        <table class="table table-dark">
+    <div class="content bg-dark table-responsive">
+        <div style="display: flex;justify-content: space-between;align-items: center;">
+            <h1 class="text-white">Tickets</h1>
+            <div id="pagination">
+                <i class="fa-solid fa-chevron-left" onclick="pageDown()"></i>
+                <input type="number" class="btn btn-outline-light" id="currentPageInput" onchange="changePage(this)" />
+                <i class="fa-solid fa-chevron-right" onclick="pageUp()"></i>
+            </div>
+        </div>
+        <table class="table table-dark table-hover text-center">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Ticket no.</th>
+                    <th scope="col">Book ref</th>
+                    <th scope="col">Passenger id</th>
+                    <th scope="col">Passenger name</th>
+                    <th scope="col">Contact data</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <tbody id="ticketsBody">
+
             </tbody>
         </table>
     </div>
