@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../all.css">
+    <link rel="stylesheet" href="./ticket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="./ticket.js"></script>
+    <title>Tickets</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar embed-responsive">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span> <span><a href="/">Backend</a></span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/tickets"><span class="las la-users"></span>
+                        <span>Tickets</span></a>
+                </li>
+                <li>
+                    <a href="/flights/pages"><span class="las la-clipboard-list"></span>
+                        <span>Flights</span></a>
+                </li>
+                <li>
+                    <a href="/boarding_passes"><span class="las la-receipt"></span>
+                        <span>Boarding passes</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content bg-dark">
+        <div style="display: flex;justify-content: space-between;align-items: center;">
+            <h1 class="text-white">Ticket</h1>
+            <button type="button" class="btn btn-outline-light" onclick="toggleEdit(this)">Editar</button>
+        </div>
+        <form class="text-light">
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label for="ticket_no" class="border-bottom w-100">Ticket no</label>
+                    <p id="ticket_no"></p>
+                </div>
+                <div class="form-group col-md">
+                    <label for="passenger_id" class="border-bottom w-100">Passenger id</label>
+                    <p id="passenger_id"></p>
+                    <input type="text" class="form-control editable" data-id="passenger_id"
+                        onchange="handleChange(this)">
+                </div>
+                <div class="form-group col-md">
+                    <label for="passenger_name" class="border-bottom w-100">Passenger name</label>
+                    <p id="passenger_name"></p>
+                    <input type="text" class="form-control editable" data-id="passenger_name"
+                        onchange="handleChange(this)">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label for="book_ref" class="border-bottom w-100">Book ref</label>
+                    <p id="book_ref"></p>
+                </div>
+                <div class="form-group col-md">
+                    <label for="book_date" class="border-bottom w-100">Book date</label>
+                    <p id="book_date"></p>
+                </div>
+                <div class="form-group col-md">
+                    <label for="total_amount" class="border-bottom w-100">Total amount</label>
+                    <p id="total_amount"></p>
+                    <input type="number" class="form-control editable" data-id="total_amount"
+                        onchange="handleChange(this)">
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label for="contact_phone" class="border-bottom w-100">Phone</label>
+                    <p id="contact_phone"></p>
+                    <input type="text" class="form-control editable" data-id="contact_phone"
+                        onchange="handleChange(this)">
+                </div>
+                <div class="form-group col-md">
+                    <label for="contact_email" class="border-bottom w-100">email</label>
+                    <p id="contact_email"></p>
+                    <input type="text" class="form-control editable" data-id="contact_email"
+                        onchange="handleChange(this)">
+                </div>
+            </div>
+        </form>
+
+        <div style="display: flex;justify-content: center;">
+            <button onclick="update()" style="display: none;" id="saveButton" type="button"
+                class="btn btn-outline-light">Guardar</button>
+        </div>
+    </div>
+</body>
+
+</html>
