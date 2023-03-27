@@ -44,5 +44,26 @@ router.get('/', async (req, res) => {
 });
 
 
+router.put('/:id', (req, res) => {
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    console.log(req);
+    console.log("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV");
+    console.log(req.body);
+
+    let querySearch = `UPDATE flights 
+                        SET flight_no = $1,
+                        departure_airport = $2,
+                        arrival_airport = $3,
+                        status = $4,
+                        aircraft_code = $5,
+                        scheduled_departure = $6,
+                        scheduled_arrival = $7
+                        WHERE flight_id = $8;`;
+    let values = [req.body.flight_no, req.body.departure_airport, req.body.arrival_airport, req.body.status, req.body.aircraft_code, req.body.scheduled_departure, req.body.scheduled_arrival, req.params.id];
+
+    db.query(querySearch, values, (err, query) => res.json({ data: "jeje" }))
+})
+
+
 
 module.exports = router;
