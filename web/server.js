@@ -9,6 +9,7 @@ const boardingPasses = require('./routes/boardingPasses');
 const app = express();
 const port = 8080;
 
+app.use(express.json())
 app.use(express.static('public/'));
 app.use('/api/tickets', tickets)
 app.use('/api/flights', flights)
