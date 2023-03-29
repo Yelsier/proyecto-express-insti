@@ -130,7 +130,7 @@ window.addEventListener("load", async () => {
                     alert("Flight has been created successfully");
                     window.location.href = "/flights/pages/index.html";
                 } else {
-                    alert("Error al crear el vuelo");
+                    alert("An error has been ocurred.");
                 }
             });
         } else {

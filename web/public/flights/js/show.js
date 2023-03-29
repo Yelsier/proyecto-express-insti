@@ -113,7 +113,7 @@ window.addEventListener("load", async () => {
             method: "DELETE",
         }).then((response) => {
             if (response.ok) {
-                alert("Flight deleted successfully, seras redirigido.")
+                alert("Flight deleted successfully, you will be redirected.")
                 window.location.href = "/flights/pages/index.html";
             } else {
                 alert("An error has occurred")
