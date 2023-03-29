@@ -1,0 +1,30 @@
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.mainContainer .form-group {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.form-group label {
+    width: 100%;
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    height: 2.7rem;
+}
+
+input {
+    background-color: #222 !important;
+    color: #fff !important;
+}

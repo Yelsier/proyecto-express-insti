@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../all.css">
+    <link rel="stylesheet" href="../css/flights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="../js/create.js"></script>
+    <link rel="stylesheet" href="../css/create.css">
+    <title>Create</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar embed-responsive">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span> <span><a href="/">Backend</a></span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/tickets"><span class="las la-users"></span>
+                        <span>Tickets</span></a>
+                </li>
+                <li>
+                    <a href="/flights/pages"><span class="las la-clipboard-list"></span>
+                        <span>Flights</span></a>
+                </li>
+                <li>
+                    <a href="/boarding_passes"><span class="las la-receipt"></span>
+                        <span>Boarding passes</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content bg-dark table-responsive-sm">
+        <h1 class="text-white">Flights</h1>
+
+        <div class="mainContainer">
+            <div class="form-group">
+                <label for="flightNumber">Flight Number</label>
+                <input type="text" class="form-control" id="flightNumber" placeholder="Enter flight number" required
+                    maxlength="6">
+            </div>
+
+            <div class="form-group">
+                <label for="scheduledDeparture">Scheduled Departure</label>
+                <input type="date" class="form-control" id="scheduledDeparture" placeholder="Enter departure airport"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="scheduledArrival">Scheduled Arrival</label>
+                <input type="date" class="form-control" id="scheduledArrival" placeholder="Enter departure airport"
+                    required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="actualDeparture">Actual Departure</label>
+                <input type="date" class="form-control" id="actualDeparture" placeholder="Enter departure airport"
+                    required value="null">
+
+            </div>
+
+            <div class="form-group">
+                <label for="actualArrival">Actual Arrival</label>
+                <input type="date" class="form-control" id="actualArrival" placeholder="Enter departure airport"
+                    required value="null">
+            </div>
+
+            <div class="form-group">
+                <label for="departureAirport">Departure Airport</label>
+                <select name="departureAirport" id="departureAirport" required></select>
+            </div>
+            <div class="form-group">
+                <label for="arrivalAirport">Arrival Airport</label>
+                <select name="arrivalAirport" id="arrivalAirport" required></select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" id="status" required></select>
+            </div>
+            <div class="form-group">
+                <label for="aircraftCode">Aircraft Code</label>
+                <select name="aircraftCode" id="aircraftCode" required></select>
+
+            </div>
+
+            <div class="actions">
+                <button id="create" onclick="() => false">Create</button>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <i class="fa-regular fa-circle-left fa-2xl" id="back"></i>
+        </div>
+    </div>
+</body>
+
+</html>

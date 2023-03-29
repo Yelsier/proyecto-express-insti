@@ -1,4 +1,5 @@
 window.addEventListener("load", async () => {
+    let createButton = document.getElementById("create");
     let table = document.getElementById("MainTable").lastElementChild;
     let prev = document.getElementById("prev");
     let next = document.getElementById("next");
@@ -44,7 +45,13 @@ window.addEventListener("load", async () => {
 
     const newPage = (value, maxValue, minValue) => {
         console.log(value);
-        actualPage = value >= minValue && value <= maxValue ? Number(value) : Number(actualPage);
+        if (value < minValue) {
+            actualPage = Number(maxValue);
+        } else if (value > maxValue) {
+            actualPage = Number(minValue);
+        } else {
+            actualPage = Number(value);
+        }
         inputPage.value = actualPage;
         fillTable();
     }
@@ -71,6 +78,11 @@ window.addEventListener("load", async () => {
     });
 
     fillTable();
+
+    createButton.addEventListener("click", () => {
+        window.location.href = "/flights/pages/create.html";
+    });
+
 });
 
 
