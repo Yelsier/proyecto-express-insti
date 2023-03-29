@@ -57,9 +57,59 @@ const changePage = async (input) => {
     updateInputPage()
 }
 
-window.addEventListener('load', async function () {
+const hideForm = () => {
+    document.getElementById("form").style.display = "none"
+}
+
+const showForm = () => {
+    document.getElementById("form").style.display = "flex"
+}
+
+const handleError = (error) => {
+    if (error == "book_ref") {
+        document.getElementById("book_ref").style.border = "1px solid red"
+    }
+}
+
+const createTicket = () => {
+    let data = {}
+    let contact_data = {}
+    document.querySelectorAll('#form input:not([type="button"])').forEach(el => {
+        if (el.id == "phone" || el.id == "email") {
+            if (el.value != "") {
+                contact_data[el.id] = el.value
+            }
+        } else {
+            data[el.id] = el.value
+        }
+    })
+
+    data = { ...data, contact_data }
+
+    fetch("/api/tickets", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json().then(data => {
+        if ("error" in data) {
+            handleError(data.error)
+        } else {
+            hideForm()
+            load()
+        }
+    }))
+}
+
+const load = async () => {
     const data = await getTickets(1)
     maxPages = data.pages
     loadTickets(data.tickets)
     updateInputPage()
+    document.getElementById("ticket_no").value = (Number((await GET("/api/tickets/nextID", {})).max) + 1).toString().padStart(13, '0');
+}
+
+window.addEventListener('load', async function () {
+    load()
 });

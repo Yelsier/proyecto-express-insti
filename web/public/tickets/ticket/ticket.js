@@ -60,16 +60,37 @@ const handleChange = (el) => {
     changes[el.getAttribute("data-id")] = el.value
 }
 
+const handleError = (campo) => {
+    console.log(campo);
+    const badInput = document.querySelector(`input[data-id="${campo}"]`)
+    badInput.style.border = "3px solid red"
+}
+
 const update = async () => {
     console.log(changes);
-    const res = await fetch("/api/tickets/" + currentId, {
+    const res = await (await fetch("/api/tickets/" + currentId, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(changes)
+    })).json()
+
+
+    if ("error" in res) {
+        handleError(res.error)
+    } else {
+        disableEdit(document.getElementById("toogleEdit"))
+        loadTicket(await GET("/api/tickets/" + currentId))
+    }
+}
+
+const deleteTicket = async () => {
+    const res = await fetch("/api/tickets/" + currentId, {
+        method: "DELETE"
     })
-    console.log(res);
+
+    window.location = "/tickets"
 }
 
 let currentId = ""
@@ -77,6 +98,11 @@ let currentId = ""
 window.addEventListener('load', async function () {
     const search = new URLSearchParams(window.location.search)
     const params = Object.fromEntries(search.entries())
+    document.querySelectorAll(".editable").forEach(element => {
+        element.addEventListener("keypress", function () {
+            element.style.border = ""
+        })
+    })
     currentId = params.id
     loadTicket(await GET("/api/tickets/" + currentId))
 });

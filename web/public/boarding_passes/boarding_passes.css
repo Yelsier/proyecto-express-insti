@@ -1,0 +1,47 @@
+/* tabla */
+
+#tableRow:hover{
+background-color: rgb(91, 91, 135);
+}
+
+#divHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text-white{
+    margin: revert;
+    padding: 10px;
+}
+.btn-st4 {
+    border: none;
+    color: #a89797;
+    background: linear-gradient(#6568d8, #6568d8) 0 0/25px 1px, linear-gradient(magenta, magenta) 0 0/1px 25px, linear-gradient(#6568d8, #6568d8) 100% 100%/25px 1px, linear-gradient(magenta, magenta) 100% 100%/1px 25px, transparent;
+    background-repeat: no-repeat;
+    margin: 20px;
+}
+.btn-st4:hover {
+    background: linear-gradient(#6568d8, #6568d8) 0 0/100% 1px, linear-gradient(magenta, magenta) 0 0/1px 40px, linear-gradient(#6568d8, #6568d8) 100% 100%/100% 1px, linear-gradient(magenta, magenta) 100% 100%/1px 40px, transparent;
+    background-repeat: no-repeat;
+}
+
+th{
+    color: rgb(91, 91, 135) ;
+}
+
+.iconos{
+    margin: 10px;
+}
+
+/* MODALES */
+
+.modalCRUD{
+    background-color:#50555a ;
+}
+
+#enviarBTNeditar,
+#enviarBTNeliminar,
+#enviarBTNcrear{
+    background-color: #6163a0;
+}

@@ -40,10 +40,14 @@
     <div class="content bg-dark table-responsive">
         <div style="display: flex;justify-content: space-between;align-items: center;">
             <h1 class="text-white">Tickets</h1>
-            <div id="pagination">
-                <i class="fa-solid fa-chevron-left" onclick="pageDown()"></i>
-                <input type="number" class="btn btn-outline-light" id="currentPageInput" onchange="changePage(this)" />
-                <i class="fa-solid fa-chevron-right" onclick="pageUp()"></i>
+            <div style="display: flex;gap: 30px;">
+                <button class="btn btn-success" onclick="showForm()">Nuevo</button>
+                <div id="pagination">
+                    <i class="fa-solid fa-chevron-left" onclick="pageDown()"></i>
+                    <input type="number" class="btn btn-outline-light" id="currentPageInput"
+                        onchange="changePage(this)" />
+                    <i class="fa-solid fa-chevron-right" onclick="pageUp()"></i>
+                </div>
             </div>
         </div>
         <table class="table table-dark table-hover text-center">
@@ -61,6 +65,38 @@
             </tbody>
         </table>
     </div>
+
+    <div class="formBG" id="form" style="display: none;">
+        <form class="form">
+            <input type="hidden" id="ticket_no">
+            <div class="form-group">
+                <label for="book_ref">Book ref *</label>
+                <input type="text" class="form-control" id="book_ref">
+            </div>
+            <div class="form-group">
+                <label for="passenger_id">Passenger id *</label>
+                <input type="text" class="form-control" id="passenger_id">
+            </div>
+            <div class="form-group">
+                <label for="passenger_name">Passenger name *</label>
+                <input type="text" class="form-control" id="passenger_name">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div style="display: flex;gap: 20px;justify-content: center;">
+                <input type="button" class="btn btn-success" onclick="createTicket()" value="Enviar">
+                <input type="button" class="btn btn-danger" onclick="hideForm()" value="Cancelar">
+            </div>
+
+        </form>
+    </div>
+
 </body>
 
 </html>

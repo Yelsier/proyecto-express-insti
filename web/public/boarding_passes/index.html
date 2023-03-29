@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../all.css">
-    <link rel="stylesheet" href="./boarding_passes.css">
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./boarding_passes.css">
     <title>Boarding passes</title>
 </head>
 
@@ -35,39 +37,104 @@
             </ul>
         </div>
     </div>
+    <div id="modalCRUDeditar" class="  modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content modalCRUD">
+            <div class="modal-header">
+              <h5 class="modal-title">EDITAR</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span  class="cerrarModalBTNu"aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <h6 id="infoModaltxt">Esta editando el valor correspondiente a  <h2 id="infoModaltxtID"></h2></h3>
+                    <label for="Boardingpassnumber-name" class="col-form-label">Boarding pass number:</label>
+                    <input id="inputNameE" type="text" class="form-control" id="Boardingpassnumber-name">
+                    <label for="Seatnumber-name" class="col-form-label">Seat number:</label>
+                    <input id="inputSeatE"  type="text" class="form-control" id="Seatnumber-name">
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button id="enviarBTNeditar" type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class=" cerrarModalBTNu btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="modalCRUDeliminar" class=" modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content modalCRUD">
+            <div class="modal-header">
+              <h5 class="modal-title">ELIMINAR</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="cerrarModalBTNe" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <h6 id="infoModaltxt">Esta seguro que quiere borrar  <h2 id="infoModaltxtID"></h2></h3>
+                    
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button id="enviarBTNeliminar" type="button" class="btn btn-primary">ELIMINAR</button>
+              <button type="button" class=" cerrarModalBTNe btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="modalCRUDcrear" class=" modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content modalCRUD">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="cerrarModalBTNc" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                   
+                      
+                        <label for="Boardingpas-ticket" class="col-form-label">Ticket number:</label>
+                        <input type="text" class="form-control" id="Boardingpas-ticket">
+                        <label for="Boardingpas-flight" class="col-form-label">Flight number:</label>
+                        <input type="text" class="form-control" id="Boardingpas-flight">
+                        <label for="Boardingpassnumber-name" class="col-form-label">Boarding pass number:</label>
+                        <input type="text" class="form-control" id="Boardingpassnumber-name">
+                        <label for="Seatnumber-name" class="col-form-label">Seat number:</label>
+                        <input type="text" class="form-control" id="Seatnumber-name">
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button id="enviarBTNcrear" type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class=" cerrarModalBTNc btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="content bg-dark">
-        <h1 class="text-white">Tabla</h1>
-        <table class="table table-dark">
+        <div id="divHeader"> 
+            <h1 class="text-white">BOARDIN PASSES</h1>
+            <button class="btn btn-st4" id="createBTN">CREATE NEW </button>
+        </div>
+  
+        <table class="table table-dark" id="tableMain">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Ticket Number</th>
+                    <th scope="col">Flight ID</th>
+                    <th scope="col">Boardin Number</th>
+                    <th scope="col">Seat Number</th>
+                   <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <tbody id="bodyTable">
+                
             </tbody>
         </table>
     </div>
 </body>
-
+<script src="boardingPasses.js"></script>
 </html>
