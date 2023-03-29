@@ -25,25 +25,50 @@ fetch("/api/boarding_passes")
     document.getElementById("bodyTable").innerHTML=tableData;
  })
     .catch(error => console.log(error))
-    function editarFetch(ticket,flight,seat,boarding){
+    function editarFetch(ticket,flight,boarding,seat){
   
         console.log(boarding)
         console.log(seat)
         fetch("/api/boarding_passes"+`/${ticket}`+`/${flight}`, {
             method: 'PUT',
             body: JSON.stringify({
-               
+                // "ticket_no": ticket,
+                // "flight_id": flight,
                 "boarding_no": boarding,
                 "seat_no": seat
             }),
             headers: {
-              'Content-Type': 'application/json; charset=UTF-8',
-            },
+                'Content-Type': 'application/json; charset=UTF-8'
+              }
           })
           .then((response) => response.text())
           .then((json) => console.log(json))
           .catch((err)=>console.log(err));
-          alert("ok")
+     
+    }
+
+    function crearFetch(ticket,flight,boarding,seat){
+      
+        console.log(flight)
+        console.log(ticket)
+        console.log(boarding)
+        console.log(seat)
+        fetch("/api/boarding_passes", {
+            method: 'POST',
+            body: JSON.stringify({
+                 "ticket_no": ticket,
+                 "flight_id": flight,
+                "boarding_no": boarding,
+                "seat_no": seat
+            }),
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8'
+              }
+          })
+          .then((response) => response.text())
+          .then((json) => console.log(json))
+          .catch((err)=>console.log(err));
+        
     }
     function eliminarFetch(ticket,flight){
     
@@ -81,10 +106,11 @@ fetch("/api/boarding_passes")
         document.getElementById("infoModaltxtID").innerText="Ticket-id: " + ticket + " flight-id: "+ flight;
     }
     function mostrarModalCreate(){
-       
+        document.getElementById("enviarBTNcrear").addEventListener("click",()=>crearFetch(document.getElementById("Boardingpas-ticket").value,document.getElementById("Boardingpas-flight").value,document.getElementById("Boardingpassnumber-name").value,document.getElementById("Seatnumber-name").value))
         document.getElementById("modalCRUDcrear").style.display="block"
        
-        
+       
+
     }
    
     function eventoAbotonesDeCierre(){
@@ -114,6 +140,8 @@ fetch("/api/boarding_passes")
         .then( data =>{
            document.getElementById("inputNameE").placeholder= data[0].boarding_no
            document.getElementById("inputSeatE").placeholder= data[0].seat_no
+           document.getElementById("inputNameE").value= data[0].boarding_no
+           document.getElementById("inputSeatE").value= data[0].seat_no
         //    console.log(data.boarding_no)
         //    console.log(data.seat_no)
         //    console.log(data)
